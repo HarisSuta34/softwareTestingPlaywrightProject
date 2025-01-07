@@ -2,20 +2,25 @@ class HomePage{
  
   constructor(page){
     this.page = page;
+    
+    //logout
     this.menu= "//div[@class='x6s0dn4 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x14yjl9h xudhj91 x18nykt9 xww2gxu x13fuv20 x972fbf x9f619 x78zum5 xdt5ytf x1iyjqo2 xs83m0k xl56j7k xat24cr x11i5rnm x1mh8g0r xdj266r x2lwn1j xeuugli x6ikm8r x10wlt62 x18d9i69 x4uap5 xkhd6sd xexx8yu x1n2onr6 x1ja2u2z']//*[name()='svg']";
     this.logoutbutton="//div[@data-nocookies='true']//div[@class='x6s0dn4 x1q0q8m5 x1qhh985 xu3j5b3 xcfux6l x26u7qi xm0m39n x13fuv20 x972fbf x9f619 x78zum5 x1q0g3np x1iyjqo2 xs83m0k x1qughib xat24cr x11i5rnm x1mh8g0r xdj266r xeuugli x18d9i69 x1sxyh0 xurb0ha xexx8yu x1n2onr6 x1ja2u2z x1gg8mnh']"
     this.homepage="//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x14z4hjw x3x7a5m xngnso2 x1qb5hxa x1xlr1w8 xzsf02u']"
     
-    this.profilePageButton="//span[contains(text(),'Faris Testirovic')]"
+    //comment
+    this.profilePageButton="//span[contains(text(),'Rijad Hamidovic')]"
     this.comment ="//p[@class='xdj266r x11i5rnm xat24cr x1mh8g0r']";
     this.commentButton = "//div[@aria-label='Comment']";
-    //this.storyMenu="//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//span//div[@aria-label='Menu']//*[name()='svg']"
-    //this.storyButton="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/div[1]/div[1]/div[1]/i[1]"
+    
+    //search
     this.searchInput = "//input[@placeholder='Search Facebook']";
 
+    //friend request
     this.friendsButton = "//span[contains(text(), 'Friends')]";
-
-    this.messengerButton="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[3]/span[1]";
+    
+    //message
+    this.messengerButton="//body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[3]/span[1]";
     this.chatIcon="//span[contains(text(),'Haris Šuta')]";
     this.chatInputField="//p[@class='xat24cr xdj266r']";
     this.sendMessageButton="//*[name()='path' and contains(@d,'m458.371 1')]"
@@ -26,7 +31,7 @@ class HomePage{
     this.groupButton="//span[contains(text(),'Groups')]";
 
     //add bio
-    this.Addbio = "//div[@aria-label='Add bio']//div[@class='x6s0dn4 x78zum5 xl56j7k x1608yet xljgi0e x1e0frkt']";
+    this.Addbio = "//span[contains(text(),'Add Bio')]";
     this.BioText = "//textarea[@placeholder='Describe who you are']";
     this.SendBio = "//span[@class='x1lliihq x6ikm8r x10wlt62 x1n2onr6 xlyipyv xuxw1ft'][normalize-space()='Save']"
 

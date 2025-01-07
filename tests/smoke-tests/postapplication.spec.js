@@ -3,7 +3,7 @@ const LoginPage = require('../../pages/loginpage');
 const HomePage = require('../../pages/homepage');
 const ProfilePage = require('../../pages/profilepage');
 
-test('Login to Facebook', async ({ page }) => {
+test('Create a post', async ({ page }) => {
   test.setTimeout(60000);
   await page.goto('https://www.facebook.com');
 

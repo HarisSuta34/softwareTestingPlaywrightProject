@@ -4,7 +4,7 @@ const HomePage = require('../../pages/homepage');
 const FriendsListPage = require('../../pages/friendslistpage');
 const BirthdaysPage = require('../../pages/birthdayspage')
 
-test('Check if homepage is loaded after login', async ({ page }) => {
+test('See birthdays of your friend', async ({ page }) => {
   test.setTimeout(60000);
   await page.goto('https://www.facebook.com');
 

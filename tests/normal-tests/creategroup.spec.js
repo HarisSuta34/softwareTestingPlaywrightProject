@@ -4,7 +4,7 @@ const HomePage = require('../../pages/homepage');
 const GroupCreationPage = require('../../pages/groupcreationpage');
 const NewGroupPage = require('../../pages/newgrouppage');
 
-test('Login to Facebook', async ({ page }) => {
+test('Create new group', async ({ page }) => {
   test.setTimeout(90000);
   await page.goto('https://www.facebook.com');
 
