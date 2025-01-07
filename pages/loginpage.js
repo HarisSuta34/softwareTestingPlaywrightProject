@@ -9,8 +9,8 @@ class LoginPage{
   }
 
   async loginInToApplication(){
-    await this.page.fill(this.email, "software.testing.22002255@gmail.com")
-    await this.page.fill(this.password, "testiranje123")
+    await this.page.fill(this.email, "rijadhamidovic92@gmail.com")
+    await this.page.fill(this.password, "rijad1234")
     await this.page.click(this.Button)
 
   }
