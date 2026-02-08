@@ -7,18 +7,25 @@ const path = require('path');
  */
 module.exports = defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
+  /* Run tests sequentially to avoid concurrent login issues */
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 4,
+  /* Sequential execution - 1 worker to avoid Facebook login conflicts */
+  workers: 1,
+  /* Global timeout for each test */
+  timeout: 90000,
+  /* Timeout for expect() assertions */
+  expect: {
+    timeout: 10000,
+  },
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
     ['json', { outputFile: 'test-results/results.json' }],
+    ['list'],
   ],
   
   /* Shared settings for all the projects below. */
@@ -33,6 +40,9 @@ module.exports = defineConfig({
     video: 'retain-on-failure',
     /* Storage state - reuse authentication across tests */
     storageState: 'auth.json',
+    /* Increased timeout for navigation and actions */
+    navigationTimeout: 30000,
+    actionTimeout: 15000,
   },
 
   /* Configure projects for major browsers */

@@ -1,5 +1,4 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../pages/loginpage');
 const HomePage = require('../../pages/homepage');
 const FriendsListPage = require('../../pages/friendslistpage');
 const BirthdaysPage = require('../../pages/birthdayspage')

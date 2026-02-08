@@ -1,5 +1,4 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../pages/loginpage');
 const HomePage = require('../../pages/homepage');
 const SearchPage = require('../../pages/searchpage');
 
@@ -10,7 +9,6 @@ test('Search functionality', async ({ page }) => {
  
   const homePage = new HomePage(page);
   
-
   await homePage.search();
 
   const searchPage = new SearchPage(page);

@@ -1,12 +1,11 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../pages/loginpage');
-const homepage = require('../../pages/homepage');
+const HomePage = require('../../pages/homepage');
  
 test('Open reels: ', async ({ page }) => {
   test.setTimeout(60000);
   await page.goto('/');
  
-  const homePage = new homepage(page);
-  await homePage.OpenReels();
+  const homePage = new HomePage(page);
+  await homePage.openReels();
   
 });
