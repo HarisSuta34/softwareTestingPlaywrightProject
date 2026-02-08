@@ -18,8 +18,8 @@ class HomePage {
     // Search - more flexible selector
     this.searchInput = this.page.locator('input[type="search"], input[placeholder*="Search"], input[aria-label*="Search"]').first();
     
-    // Profile button - dynamic with fallback
-    this.profilePageButton = this.page.locator(`a[href*="/${this.profileName.toLowerCase().replace(/\s+/g, '.')}"], a:has-text("${this.profileName}")`).first();
+    // Profile button - dynamic with safer selector
+    this.profilePageButton = this.page.getByRole('link').filter({ hasText: this.profileName }).first();
     
     // Comments - more flexible
     this.comment = this.page.locator('p[contenteditable="true"]').first();
@@ -60,7 +60,11 @@ class HomePage {
     } catch (error) {
       console.error('⚠️ Homepage wait failed:', error.message);
       // Try waiting for network idle as fallback
-      await this.page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
+      try {
+        await this.page.waitForLoadState('networkidle', { timeout: 5000 });
+      } catch (fallbackError) {
+        console.error('⚠️ Fallback wait also failed:', fallbackError.message);
+      }
     }
   }
 

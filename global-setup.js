@@ -31,15 +31,15 @@ module.exports = async config => {
     console.log('✅ Page loaded');
 
     console.log('⏳ Waiting for login form...');
-    await page.waitForSelector("input[id='email']", { timeout: 15000 });
+    await page.waitForSelector('input#email', { timeout: 15000 });
     console.log('✅ Login form found');
 
     const email = 'rijadhamidovic92@gmail.com';
     const password = 'rijad1234';
 
     console.log('✏️ Entering credentials...');
-    await page.fill("input[id='email']", email);
-    await page.fill("input[id='pass']", password);
+    await page.fill('input#email', email);
+    await page.fill('input#pass', password);
     console.log('✅ Credentials entered');
     
     console.log('🖱️ Clicking login button...');
