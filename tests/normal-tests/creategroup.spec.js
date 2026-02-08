@@ -6,11 +6,8 @@ const NewGroupPage = require('../../pages/newgrouppage');
 
 test('Create new group', async ({ page }) => {
   test.setTimeout(90000);
-  await page.goto('https://www.facebook.com');
+  await page.goto('/');
 
-  const loginPage = new LoginPage(page);
-
-  await loginPage.loginInToApplication();
 
   const homePage = new HomePage(page);
 

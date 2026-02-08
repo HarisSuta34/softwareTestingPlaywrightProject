@@ -6,12 +6,8 @@ const SearchPage = require('../../pages/searchpage');
  
 test('Search functionality', async ({ page }) => {
   test.setTimeout(60000);
-  await page.goto('https://www.facebook.com');
+  await page.goto('/');
  
-  const loginPage = new LoginPage(page);
-  await loginPage.loginInToApplication();
- 
-  // Add a wait to ensure the page has fully loaded after login
   const homePage = new HomePage(page);
   
 
@@ -20,7 +16,6 @@ test('Search functionality', async ({ page }) => {
   const searchPage = new SearchPage(page);
   await page.waitForSelector(searchPage.searchPage);
 
-  // Assert that the homepage element is visible
   await expect(page.locator(searchPage.searchPage)).toBeVisible();
  
 });

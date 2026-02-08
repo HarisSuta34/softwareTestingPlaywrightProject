@@ -51,4 +51,4 @@ Challenges Faced
 
 Finding Reliable Selectors: Identifying stable selectors was critical to ensure consistent test execution. Dynamic elements and varying page structures required careful selection of locators.
 
-Concurrent Test Execution: Configuring the project for parallel execution posed challenges related to test isolation and shared resource management.
+Concurrent Test Execution: Configuring the project for serial execution

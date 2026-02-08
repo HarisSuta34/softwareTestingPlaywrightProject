@@ -1,14 +1,11 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../../pages/loginpage');
 const HomePage = require('../../pages/homepage');
 
 test('Log out from Facebook', async ({ page }) => {
   test.setTimeout(60000);
-  await page.goto('https://www.facebook.com');
+  await page.goto('/');
 
-  const loginPage = new LoginPage(page);
-  await loginPage.loginInToApplication();
-
+  // Already logged in via auth.json, just test logout
   const homePage = new HomePage(page);
   await homePage.logOutFromApplication();
   

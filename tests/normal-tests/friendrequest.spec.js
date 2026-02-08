@@ -5,15 +5,11 @@ const SearchPage = require('../../pages/searchpage');
  
 test('Send friend request', async ({ page }) => {
   test.setTimeout(60000);
-  await page.goto('https://www.facebook.com');
+  await page.goto('/');
  
-  const loginPage = new LoginPage(page);
-  await loginPage.loginInToApplication();
  
-  // Add a wait to ensure the page has fully loaded after login
   const homePage = new HomePage(page);
 
-  // Wait for the homepage element to be visible
   await page.waitForSelector(homePage.homepage, { timeout: 60000 }); // 60 seconds
 
   await homePage.search();
