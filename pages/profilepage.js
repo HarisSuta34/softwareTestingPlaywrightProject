@@ -3,18 +3,20 @@ class ProfilePage{
 
   constructor(page){
     this.page = page;
-    this.postField="//div[@class='x1cy8zhl x78zum5 x1iyjqo2 xh8yej3']//span[@class='x1lliihq x6ikm8r x10wlt62 x1n2onr6']"
-    this.postText="//p[@class='xdj266r x11i5rnm xat24cr x1mh8g0r x16tdsg8']"
-    this.postButton="//div[@aria-label='Post']//div[@class='x6s0dn4 x78zum5 xl56j7k x1608yet xljgi0e x1e0frkt']"
-
-
+    // More flexible selectors
+    this.postField = this.page.locator('div[role="button"]:has-text("What\'s on your mind"), span:has-text("What\'s on your mind")').first();
+    this.postText = this.page.locator('p[contenteditable="true"]').first();
+    this.postButton = this.page.getByRole('button', { name: /^post$/i }).first();
   }
 
   async createPost(){
-    await this.page.waitForSelector(this.postField);
-    await this.page.click(this.postField);
-    await this.page.fill(this.postText, "This is a test post")
-    await this.page.click(this.postButton);
+    await this.postField.waitFor({ state: 'visible', timeout: 10000 });
+    await this.postField.click();
+    await this.page.waitForTimeout(1000);
+    await this.postText.fill("This is a test post");
+    await this.page.waitForTimeout(1000);
+    await this.postButton.click();
+    await this.page.waitForTimeout(2000);
   }
 
 }

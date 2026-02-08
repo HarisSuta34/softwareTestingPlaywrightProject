@@ -2,11 +2,14 @@ class FriendsListPage{
 
   constructor(page){
     this.page=page;
-    this.birthdaysButton="//span[contains(text(), 'Birthdays')]";
+    // More flexible selector
+    this.birthdaysButton = this.page.getByRole('link', { name: /birthdays/i }).first();
   }
 
   async seeBirthdays(){
-    await this.page.click(this.birthdaysButton);
+    await this.birthdaysButton.waitFor({ state: 'visible', timeout: 10000 });
+    await this.birthdaysButton.click();
+    await this.page.waitForTimeout(2000);
   }
 
 }

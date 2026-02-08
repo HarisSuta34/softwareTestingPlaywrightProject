@@ -2,13 +2,15 @@ class GroupCreationPage{
 
   constructor(page){
     this.page=page;
-    this.creatGroupPage="//div[@class='x6s0dn4 x78zum5 xdt5ytf x193iq5w x1t2pt76 xh8yej3']";
-    this.createNewGroupButton="//span[contains(text(),'Create New Group')]"
+    this.creatGroupPage = this.page.locator('div[role="main"], main').first();
+    this.createNewGroupButton = this.page.getByRole('link', { name: /create new group/i }).or(this.page.locator('span:has-text("Create New Group")')).first();
   }
 
 
   async createNewGroup(){
-    await this.page.click(this.createNewGroupButton);
+    await this.createNewGroupButton.waitFor({ state: 'visible', timeout: 10000 });
+    await this.createNewGroupButton.click();
+    await this.page.waitForTimeout(2000);
   }
 }
 
